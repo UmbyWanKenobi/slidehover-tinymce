@@ -1,0 +1,35 @@
+/* Base */
+.slidehover {
+    display: block;
+    position: relative;
+    line-height: 0;
+}
+
+.slidehover img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.5s ease;
+}
+
+.slidehover img:last-child {
+    opacity: 0;
+}
+
+/* Hover normale */
+.slidehover:hover img:last-child {
+    opacity: 1;
+}
+
+/* Ciclicità automatica (solo se aggiungi loop="yes") */
+.slidehover.loop img:last-child {
+    animation: shFade 3s infinite alternate;
+}
+
+@keyframes shFade {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+}
