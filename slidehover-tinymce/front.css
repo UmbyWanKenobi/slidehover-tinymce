@@ -1,0 +1,43 @@
+/* Contenitore responsivo */
+.wp-caption[class*="slidehover-"] {
+    max-width: 100%;
+    height: auto;
+    display: table;        /* ← fa sì che WordPress centri / allinei */
+    margin-left: auto;     /* default none */
+    margin-right: auto;
+}
+.wp-caption.slidehover-left   { margin-left: 0; margin-right: auto; }
+.wp-caption.slidehover-right  { margin-left: auto; margin-right: 0; }
+.wp-caption.slidehover-center { margin-left: auto; margin-right: auto; }
+
+/* Le immagini si adattano al contenitore */
+.wp-caption[class*="slidehover-"] .sh-wrap {
+    position: relative;
+    width: 100%;
+    height: 0;                    /* trick per aspect ratio fluida */
+    padding-bottom: calc(var(--h, 400) * 100% / var(--w, 600));
+}
+.wp-caption[class*="slidehover-"] img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;            /* ridimensiona senza deformare */
+}
+
+.wp-caption[class*="slidehover-"]{max-width:100%;height:auto}
+.wp-caption[class*="slidehover-"] .sh-wrap{position:relative;overflow:hidden}
+.wp-caption[class*="slidehover-"] img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover}
+
+.slidehover-fade   .sh-after{opacity:0;transition:opacity var(--dur,.5s)}
+.slidehover-fade:hover .sh-after{opacity:1}
+
+.slidehover-cycle  .sh-after{opacity:0;animation:shcycle var(--dur,.5s) infinite alternate}
+@keyframes shcycle{0%{opacity:0}100%{opacity:1}}
+
+.slidehover-swipe  .sh-after{transform:translateX(100%);transition:transform var(--dur,.5s)}
+.slidehover-swipe:hover .sh-after{transform:translateX(0)}
+
+.slidehover-zoom   .sh-after{opacity:0;transform:scale(1.15);transition:opacity var(--dur,.5s),transform var(--dur,.5s)}
+.slidehover-zoom:hover .sh-after{opacity:1;transform:scale(1)}
