@@ -3,7 +3,7 @@
  * Plugin Name: Slide Hover TinyMCE
  * Description: Pulsante TinyMCE per scegliere due immagini e generare lo shortcode [slidehover].
  * Version:     1.0.0
- * Author:      UMBY
+ * Author:      Tu
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -73,5 +73,4 @@ function sh_mce_plugin( $plugins ) {
 function sh_mce_button( $buttons ) {
     array_push( $buttons, 'slidehover' );
     return $buttons;
-
 }
